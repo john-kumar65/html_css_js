@@ -1,0 +1,173 @@
+
+<html> 
+	<head> 
+	<title>Project 1</title> 
+	<style> 
+	#container
+{
+height:290px; 
+width:240px; 
+background-color:skyblue;
+} 
+	#head
+{
+text-decoration:overline underline;
+background-color:red;
+color:white;
+padding:5px;
+} 
+	#screen
+{
+height:45px; 
+width:210px; 
+margin-bottom:10px; 
+margin-top:10px; 
+margin-Left:10px; 
+margin-Right:10px;
+border:3px solid black; 
+border-radius:5%;
+} 
+	#a,#b,#c,#d,#e,#f,#g,#h,#i,#j,#k,#l,#m,#n,#o,#p,#q,#r,#s,#t,#u,#v 
+	{ 
+	height:35px; 
+	width:55px; 
+	border-radius:20%; 
+	} 
+	#a,#b,#c,#e,#f,#g,#i,#j,#k,#m 
+	{ 
+	background-color:aqua; 
+	} 
+	#d,#h,#l,#p 
+	{ 
+	background-color:green; 
+	color:white; 
+	} 
+	#r,#s 
+	{ 
+	background-color:red; 
+	color:white; 
+	font-weight:bold; 
+	} 
+	#n,#o 
+	{ 
+	background-color:lightgreen; 
+	} 
+	table 
+	{ 
+	border-collapse:collapse; 
+	border:5px solid black; 
+	} 
+	#u{width:113px; height:35px; background-color:#C71585; font-weight:bold;} 
+	#v{width:113px; height:35px; background-color:#DB7093; font-weight:bold;} 
+	#t{background-color:#DAA520;} 
+	#q{background-color:darkgreen; color:yellow;} 
+	#a:hover,#b:hover,#c:hover,#e:hover,#f:hover,#g:hover,#i:hover,#j:hover,#k:hover,#m:hover 
+	{ 
+	background-color:red; 
+	color:white; 
+	} 
+	#d:hover,#h:hover,#l:hover,#p:hover 
+	{ 
+	background-color:yellow; 
+	color:black; 
+	} 
+	#n:hover,#o:hover 
+	{ 
+	background-color:#7FFF00; 
+	color:black; 
+	} 
+	#r:hover,#s:hover 
+	{ 
+	background-color:#2F4F4F; 
+	} 
+	</style> 
+	<script> 
+	function on() 
+	{ 
+	var d=document.getElementById("screen"); 
+	d.value="0"; 
+	} 
+	function off() 
+	{ 
+	var d=document.getElementById("screen"); 
+	d.value=""; 
+	} 
+	function combine(a) 
+	{ 
+	var d=document.getElementById("screen"); 
+	d.value=d.value+a.value; 
+	d.value=number(d.value); 
+	} 
+	function adddot() 
+	{ 
+	var d=document.getElementById("screen"); 
+	if(d.value.indexOf(".")==-1) 
+	{ 
+	d.value=d.value + "."; 
+	} 
+	} 
+	function transfer(c) 
+	{ 
+	var d=document.getElementById("screen"); 
+	var M=document.getElementById("u"); 
+	var opr=document.getElementById("v"); 
+	M.value=d.value; 
+	opr.value=c.value; 
+	d.value="0"; 
+	} 
+	function calculate() 
+	{ 
+	var d=document.getElementById("screen"); 
+	var m=document.getElementById("u"); 
+	var opr=document.getElementById("v"); 
+	d.value=eval(m.value+opr.value+d.value); 
+	} 
+	</script> 
+ 
+	</head> 
+	<body> 
+	<h1 id="head">Calculator</h1> 
+	<div id="container"> 
+	<table border="1" height="250px" width="120px" background-color:purple;> 
+	<tr> 
+	<td colspan="4"><input type="text" id="screen"></td> 
+	</tr> 
+	<tr> 
+	<td><input type="button" value="1" id="a" onclick="combine(this)"></td> 
+	<td><input type="button" value="2" id="b" onclick="combine(this)"></td> 
+	<td><input type="button" value="3" id="c" onclick="combine(this)"></td> 
+	<td><input type="button" value="+" id="d" onclick="transfer(this)"></td> 
+	</tr> 
+	<tr> 
+	<td><input type="button" value="4" id="e" onclick="combine(this)"></td> 
+	<td><input type="button" value="5" id="f" onclick="combine(this)"></td> 
+	<td><input type="button" value="6" id="g" onclick="combine(this)"></td> 
+	<td><input type="button" value="-" id="h" onclick="transfer(this)" 
+	</td> 
+	</tr> 
+	<tr> 
+	<td><input type="button" value="7" id="i" onclick="combine(this)"></td> 
+	<td><input type="button" value="8" id="j" onclick="combine(this)"></td> 
+	<td><input type="button" value="9" id="k" onclick="combine(this)"></td> 
+	<td><input type="button" value="/" id="l" onclick="transfer(this)"></td> 
+	</tr> 
+	<tr> 
+	<td><input type="button" value="0" id="m" onclick="combine(this)"></td> 
+	<td><input type="button" value="." id="n" onclick="adddot()"></td> 
+	<td><input type="button" value="=" id="o" onclick="calculate()"></td> 
+	<td><input type="button" value="*" id="p" onclick="transfer(this)"></td> 
+	</tr> 
+	<tr> 
+	<td><input type="button" value="AC" id="q"></td> 
+	<td><input type="button" value="ON" id="r" onclick="on()"></td> 
+	<td><input type="button" value="OFF" id="s" onclick="off()"></td> 
+	<td><input type="button" value="" id="t"></td> 
+	</tr> 
+	<tr> 
+	<td colspan="2"><input type="button" value="M" id="u"></td> 
+	<td colspan="2"><input type="button" value="0pr" id="v"></td> 
+	</tr> 
+	</table> 
+	</container> 
+	</body> 
+	</html>
